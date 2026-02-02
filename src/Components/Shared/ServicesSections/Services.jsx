@@ -40,7 +40,7 @@ const Services = () => {
               <p className="text-gray-600">
                 {service.desc}
               </p>
-              <Link href="/" className="btn btn-primary mt-4">View Details</Link>
+              <Link   href={`/service/${service.id}`} className="btn btn-primary mt-4">View Details</Link>
             </div>
           ))}
         </div>
