@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# CareNest 🏡  
+### Baby Sitting & Elderly Care Service Platform
 
-## Getting Started
+CareNest is a modern care service platform built with **Next.js** that connects families with trusted baby sitters and elderly caregivers. The platform focuses on safety, reliability, and ease of use, with secure authentication powered by **NextAuth.js**.
 
-First, run the development server:
+---
+
+## 🌟 Features
+
+### 👶 Baby Sitting
+- Verified baby sitters
+- Flexible booking (hourly / daily)
+- Safe and caring environment
+
+### 👵 Elderly Care
+- Professional caregivers
+- Daily assistance support
+- In-home elderly care services
+
+### 🔐 Authentication & Security
+- Secure login with **NextAuth.js**
+- JWT-based session handling
+- Protected routes (dashboard, bookings)
+
+### 💻 Platform Features
+- User & caregiver dashboards
+- Service booking system
+- Responsive UI (mobile & desktop)
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **Next.js 14 (App Router)**
+- React.js
+- Tailwind CSS
+
+### Authentication
+- **NextAuth.js**
+- Credentials / OAuth Providers
+- JWT Sessions
+
+### Backend & Database
+- Node.js
+- MongoDB
+- Mongoose
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18+ recommended)
+- MongoDB (local or Atlas)
+- npm / yarn / pnpm
+
+---
+
+## ⚙️ Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone https://github.com/your-username/carenest.git
+cd carenest
+npm install
