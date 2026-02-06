@@ -1,0 +1,90 @@
+[
+  {
+    "id": "baby-care",
+   
+    "image": "https://i.ibb.co.com/d08mkrYW/aditya-romansa-5zp0jym2w9-M-unsplash.jpg",
+    "title": "Baby Care",
+    "tagline": "Safe & Loving Care at Home",
+    "description": "Our Baby Care services provides trained caregivers to ensure your child’s safety, comfort, and healthy development in a secure home environment.",
+    "features": [
+      "Trained & verified caregivers",
+      "24/7 baby supervision",
+      "Feeding & hygiene support",
+      "Daily activity monitoring",
+      "Emergency assistance"
+    ],
+    "forWhom": [
+      "Working parents",
+      "Newborn babies",
+      "Infants & toddlers"
+    ],
+    "availability": {
+      "shift": ["Day", "Night", "24/7"],
+      "duration": ["Hourly", "Daily", "Monthly"]
+    },
+    "pricing": "$15/hour",
+    "safety": [
+      "Strict hygiene protocol",
+      "Emergency handling training",
+      "Regular health checks"
+    ]
+  },
+  {
+    "id": "elderly-care",
+   "image": "https://i.ibb.co/LdcFKdgM/georg-arthur-pflueger-Te-Ww-YARfc-M4-unsplash.jpg",
+    "title": "Elderly Care",
+    "tagline": "Compassionate Support for Seniors",
+    "description": "Our Elderly Care services ensures seniors receive daily assistance, companionship, and respectful care to maintain a comfortable lifestyle.",
+    "features": [
+      "Daily activity assistance",
+      "Medication reminders",
+      "Mobility & companionship support",
+      "Health condition monitoring",
+      "Emergency response"
+    ],
+    "forWhom": [
+      "Senior citizens",
+      "Elderly living alone",
+      "Post-hospital recovery patients"
+    ],
+    "availability": {
+      "shift": ["Day", "Night", "24/7"],
+      "duration": ["Daily", "Weekly", "Monthly"]
+    },
+    "pricing": "$25/hour",
+    "safety": [
+      "Background-checked caregivers",
+      "Health & mobility training",
+      "24/7 support system"
+    ]
+  },
+  {
+    "id": "sick-care",
+    "image": "https://i.ibb.co.com/LDSYbzbt/chang-duong-n-Di4-YTMKP-g-unsplash.jpg",
+    "title": "Sick People Care",
+    "tagline": "Professional Care During Recovery",
+    "description": "We provide professional home care services for patients recovering from illness with medical assistance and personal support.",
+    "features": [
+      "Patient monitoring",
+      "Medical assistance support",
+      "Personal hygiene care",
+      "Doctor instruction follow-up",
+      "Emergency coordination"
+    ],
+    "forWhom": [
+      "Post-surgery patients",
+      "Chronically ill patients",
+      "Short-term illness recovery"
+    ],
+    "availability": {
+      "shift": ["Day", "Night"],
+      "duration": ["Daily", "Weekly"]
+    },
+    "pricing": "$20/hour",
+    "safety": [
+      "Medical protocol adherence",
+      "Emergency handling",
+      "Regular caregiver evaluation"
+    ]
+  }
+]

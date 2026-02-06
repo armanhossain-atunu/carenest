@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 const Banner = () => {
   const slides = [
     {
-      title: 'Trusted Baby Sitting Services',
+      title: 'Trusted Baby Sitting servicess',
       desc: 'Safe, caring, and trained babysitters for your little ones.',
       img: 'https://i.ibb.co.com/2YqnpX4M/hero-greatercare-large2.jpg',
     },
@@ -19,7 +19,7 @@ const Banner = () => {
     },
     {
       title: '24/7 Home Care Support',
-      desc: 'Reliable care services whenever your family needs.',
+      desc: 'Reliable care servicess whenever your family needs.',
       img: 'https://gwosevo.com/core/uploads/2024/06/The-Role-of-Customer-Support-in-Retention.jpg',
     },
   ];

@@ -1,7 +1,7 @@
 # CareNest 🏡  
-### Baby Sitting & Elderly Care Service Platform
+### Baby Sitting & Elderly Care services Platform
 
-CareNest is a modern care service platform built with **Next.js** that connects families with trusted baby sitters and elderly caregivers. The platform focuses on safety, reliability, and ease of use, with secure authentication powered by **NextAuth.js**.
+CareNest is a modern care services platform built with **Next.js** that connects families with trusted baby sitters and elderly caregivers. The platform focuses on safety, reliability, and ease of use, with secure authentication powered by **NextAuth.js**.
 
 ---
 
@@ -15,7 +15,7 @@ CareNest is a modern care service platform built with **Next.js** that connects 
 ### 👵 Elderly Care
 - Professional caregivers
 - Daily assistance support
-- In-home elderly care services
+- In-home elderly care servicess
 
 ### 🔐 Authentication & Security
 - Secure login with **NextAuth.js**
@@ -24,7 +24,7 @@ CareNest is a modern care service platform built with **Next.js** that connects 
 
 ### 💻 Platform Features
 - User & caregiver dashboards
-- Service booking system
+- services booking system
 - Responsive UI (mobile & desktop)
 
 ---

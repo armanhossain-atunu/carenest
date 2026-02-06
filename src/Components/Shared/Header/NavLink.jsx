@@ -16,7 +16,7 @@ const NavLinks = () => {
             <li><Link className={linkClass("/")} href="/">Home</Link></li>
             <li><Link className={linkClass("/about")} href="/about">About</Link></li>
             <li><Link className={linkClass("/contact")} href="/contact">Contact</Link></li>
-            <li><Link className={linkClass("/services")} href="/services">Service</Link></li>
+            <li><Link className={linkClass("/servicess")} href="/servicess">services</Link></li>
 
             {/* Dashboard Routes */}
             <li>

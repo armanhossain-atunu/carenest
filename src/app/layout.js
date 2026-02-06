@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Welcome to CareNest | Home",
-  description: "This is a Baby Sitting & Elderly Care Service Website",
+  description: "This is a Baby Sitting & Elderly Care services Website",
 };
 
 export default function RootLayout({ children }) {

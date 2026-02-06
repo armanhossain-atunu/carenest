@@ -1,49 +1,55 @@
-import { Baby, HeartPulse, Users } from 'lucide-react';
+import React from 'react';
 import Link from 'next/link';
+import serviceData from '../../../Data/services.json';
 
 const Services = () => {
-  const services = [
-    {
-      title: 'Baby Care',
-      desc: 'Safe, loving, and attentive care for infants and children in a secure home environment.',
-      icon: <Baby size={40} className="text-purple-600" />,
-    },
-    {
-      title: 'Elderly Care',
-      desc: 'Compassionate support for seniors including daily assistance, companionship, and mobility care.',
-      icon: <Users size={40} className="text-purple-600" />,
-    },
-    {
-      title: 'Sick People Care',
-      desc: 'Professional care for patients recovering from illness with medical support and personal assistance.',
-      icon: <HeartPulse size={40} className="text-purple-600" />,
-    },
-  ];
+  const services = serviceData || [];
+
+  if (!services.length) {
+    return (
+      <p className="text-center py-20 text-gray-500">
+        No services available
+      </p>
+    );
+  }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-base-100">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Our Services
         </h2>
-
         <div className="grid md:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div
-              key={index}
-              className="p-8 rounded-xl shadow-md hover:shadow-xl transition"
+              key={service.id}
+              className="p-8 rounded-xl border shadow-sm hover:shadow-lg transition"
             >
-              <div className="mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-3">
+              <h3 className="text-xl font-semibold mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-600">
-                {service.desc}
+
+              <p className="text-purple-600 text-sm mb-3">
+                {service.tagline}
               </p>
-              <Link   href={`/service/${service.id}`} className="btn btn-primary mt-4">View Details</Link>
+
+              <p className="text-gray-600 mb-4">
+                {service.description}
+              </p>
+              <Link
+                href={`/services/${service.id}`}
+                className="group inline-flex items-center gap-1 text-purple-600 font-semibold transition hover:underline"
+              >
+                View Details
+                <span className="inline-block transition-transform duration-300 ease-in-out group-hover:translate-x-2">
+                  →
+                </span>
+              </Link>
+
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
