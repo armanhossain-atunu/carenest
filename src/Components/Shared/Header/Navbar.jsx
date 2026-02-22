@@ -11,9 +11,9 @@ const Navbar = () => {
         try {
             const stored = localStorage.getItem('theme');
             const initial = stored || 'light';
-           
+
             document.documentElement.setAttribute('data-theme', initial === 'light' ? 'light' : 'night');
-        } catch (e) {}
+        } catch (e) { }
     }, []);
 
     const toggleTheme = () => {
@@ -21,7 +21,7 @@ const Navbar = () => {
         setTheme(next === 'light' ? 'light' : 'night');
         try {
             localStorage.setItem('theme', next === 'light' ? 'light' : 'night');
-        } catch (e) {}
+        } catch (e) { }
         document.documentElement.setAttribute('data-theme', next);
     };
 
@@ -36,10 +36,13 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <Link href="/">
+                                <Logo></Logo>
+                            </Link>
                             <NavLinks></NavLinks>
                         </ul>
                     </div>
-                    <Link href="/">
+                    <Link href="/" className=" hidden lg:flex">
                         <Logo></Logo>
                     </Link>
                 </div>

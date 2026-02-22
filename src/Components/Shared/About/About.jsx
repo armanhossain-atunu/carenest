@@ -30,7 +30,7 @@ const About = () => {
 
           {/* Image */}
           <div>
-            <Image src="https://i.ibb.co/PGwWRsJw/Gemini-Generated-Image-h7crtth7crtth7cr.png" alt="About"
+            <Image src="https://i.ibb.co.com/PGwWRsJw/Gemini-Generated-Image-h7crtth7crtth7cr.png" alt="About"
               width={600} height={700}
               className="w-full rounded-lg shadow"
             />
