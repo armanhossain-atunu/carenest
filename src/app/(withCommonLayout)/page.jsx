@@ -1,6 +1,7 @@
 import About from "@/Components/Shared/About/About";
 import Banner from "@/Components/Shared/Header/Banner";
 import Services from "@/Components/Shared/ServicesSections/Services";
+import Testimonials from "@/Components/Testimonials";
 
 
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Banner></Banner>
       <About></About>
       <Services></Services>
+      <Testimonials></Testimonials>
     </div>
   );
 }

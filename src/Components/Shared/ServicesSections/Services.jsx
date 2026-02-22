@@ -14,7 +14,7 @@ const Services = () => {
   }
 
   return (
-    <section className="py-16 bg-base-100">
+    <section className="py-5 bg-base-100">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
           Our Services

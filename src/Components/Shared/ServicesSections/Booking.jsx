@@ -7,6 +7,7 @@ const Booking = () => {
     const {
         register,
         handleSubmit,
+        watch,
         reset,
         formState: { errors },
     } = useForm();
@@ -16,11 +17,18 @@ const Booking = () => {
     };
     const regionsDuplicate = regionLocation.map(d => d.region)
     const regions = [...new Set(regionsDuplicate)]
-    console.log(regions, 'all regions');
+    const userByRegion = watch('region');
+
+
+    const districtsByRegion = region =>{
+       const districts = regionLocation.filter(d => d.region === region).map(d => d.district)
+       return [...new Set(districts)]
+    }
+    // console.log(regions, 'all regions');
     const handleFormData = (data) => {
-        console.log('Booking Data:', data);
         reset();
         document.getElementById('booking_modal')?.close();
+        console.log('Booking Data:', data);
     };
 
     return (
@@ -103,12 +111,24 @@ const Booking = () => {
                                 <p className="text-red-500 text-sm">{errors.date.message}</p>
                             )}
                         </div>
+                        {/* Region */}
                         <fieldset className="fieldset">
                             <legend className="fieldset-legend">Regions</legend>
-                            <select defaultValue="Pick a region" className="select">
+                            <select {...register('region', { required: 'Region is required' })} defaultValue="Pick a region" className="select w-full">
                                 <option disabled={true}>Pick a region</option>
                                 {
                                     regions.map((r, i) => <option key={i} value={r}>{r}</option>)
+                                }
+                            </select>
+                        </fieldset>
+
+                        {/* District */}
+                        <fieldset className="fieldset">
+                            <legend className="fieldset-legend">Districts</legend>
+                            <select {...register('district', { required: 'District is required' })} defaultValue="Pick a district" className="select w-full">
+                                <option disabled={true}>Pick a district</option>
+                                {
+                                    districtsByRegion(userByRegion).map((d, i) => <option key={i} value={d}>{d}</option>)
                                 }
                             </select>
                         </fieldset>
