@@ -1,9 +1,13 @@
 'use client';
+import { UserContext } from '@/Context/users.context';
 import Link from 'next/link';
-import React from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 const Login = () => {
+    const { setUser } = useContext(UserContext)
+    const router=useRouter()
     const {
         register,
         handleSubmit,
@@ -11,7 +15,24 @@ const Login = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log('Login Data:', data);
+
+        const email = data.email.toLowerCase();
+        const password = data.password;
+
+        console.log('Login Data:', { email, password });
+        if (email === 'admin@codefiy.com' && password === '123456') {
+            const currantUser = {
+                email,
+                name: email.split('@')[0],
+            }
+            setUser(currantUser)
+            alert('Login Successfully');
+            router.push('/')
+        }
+        else {
+            alert('Login Failed');
+            setUser(null)
+        }
     };
 
     return (
@@ -27,6 +48,7 @@ const Login = () => {
                     <label className="label">Email</label>
                     <input
                         type="email"
+                        name='email'
                         className="input"
                         placeholder="Email"
                         {...register('email', { required: 'Email is required' })}
@@ -40,6 +62,7 @@ const Login = () => {
                     <input
                         type="password"
                         className="input"
+                        name='password'
                         placeholder="Password"
                         {...register('password', {
                             required: 'Password is required',

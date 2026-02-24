@@ -7,10 +7,10 @@ import Link from 'next/link';
 const Logo = () => {
     return (
         <div >
-            <Link href="/" className='flex items-center text-3xl font-bold'>Care
-                <Image src={LogoImage} width={60} height={50} alt="Logo" className='mx-auto ' />
+            <div className='flex items-center text-3xl font-bold'>Care
+                <Image src={LogoImage} width={60} height={50} alt="Logo" className='w-10 h-10' />
                 <span className='text-primary'>Nest</span>
-            </Link>
+            </div>
         </div>
     );
 };

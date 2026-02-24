@@ -49,7 +49,7 @@ const Testimonials = () => {
                             alt="John Doe"
                             width={64}
                             height={64}
-                            className="rounded-full mx-auto mb-4"
+                            className="rounded-full w-20 h-20 mx-auto mb-4"
                         />
                         <p className="text-gray-600 mb-2">
                             "Great service and outstanding support!"
@@ -64,7 +64,7 @@ const Testimonials = () => {
                             alt="John Doe"
                             width={64}
                             height={64}
-                            className="rounded-full mx-auto mb-4"
+                            className="rounded-full w-20 h-20 mx-auto mb-4"
                         />
                         <p className="text-gray-600 mb-2">
                             "Great service and outstanding support!"
@@ -79,7 +79,7 @@ const Testimonials = () => {
                             alt="John Doe"
                             width={64}
                             height={64}
-                            className="rounded-full mx-auto mb-4"
+                            className="rounded-full w-20 h-20 mx-auto mb-4"
                         />
                         <p className="text-gray-600 mb-2">
                             "Great service and outstanding support!"
@@ -95,7 +95,7 @@ const Testimonials = () => {
                             alt="Sarah Khan"
                             width={64}
                             height={64}
-                            className="rounded-full  mx-auto mb-4"
+                            className="rounded-full  w-20 h-20 mx-auto mb-4"
                         />
                         <p className="text-gray-600 mb-2">
                             "Highly professional and skilled developer."
