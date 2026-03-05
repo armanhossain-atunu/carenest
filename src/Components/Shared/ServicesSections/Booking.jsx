@@ -2,6 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import regionLocation from '@/data/regions.json';
+import { toast } from 'react-toastify';
 
 const Booking = () => {
     const {
@@ -28,6 +29,7 @@ const Booking = () => {
     const handleFormData = (data) => {
         reset();
         document.getElementById('booking_modal')?.close();
+        toast.success('Booking Successfully');
         console.log('Booking Data:', data);
     };
 
@@ -78,6 +80,34 @@ const Booking = () => {
                             />
                             {errors.phone && (
                                 <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                            )}
+                        </div>
+
+                        {/* Email */}
+                        <div>
+                            <label className="label">Email</label>
+                            <input
+                                {...register('email', { required: 'Email is required' })}
+                                className="input input-bordered w-full"
+                                placeholder="Enter your email"
+                            />
+                            {errors.email && (
+                                <p className="text-red-500 text-sm">{errors.email.message}</p>
+                            )}
+                        </div>
+                        {/* price */}
+                        <div>
+                            <label className="label">Price</label>
+                            <select {...register('price', { required: 'Price is required' })} className="select select-bordered w-full">
+                                <option value="15">15<span>$-Hour</span></option>
+                                <option value="40">40<span>$-Day</span></option>
+                                <option value="150">150<span>$-Week</span></option>
+                                <option value="400">400<span>$-Month</span></option>
+                                <option value="1500">1500<span>$-Year</span></option>    
+                            </select>
+
+                            {errors.price && (
+                                <p className="text-red-500 text-sm">{errors.price.message}</p>
                             )}
                         </div>
 

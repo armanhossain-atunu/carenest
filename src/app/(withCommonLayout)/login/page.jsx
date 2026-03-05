@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const { setUser } = useContext(UserContext)
@@ -26,7 +27,7 @@ const Login = () => {
                 name: email.split('@')[0],
             }
             setUser(currantUser)
-            alert('Login Successfully');
+            toast.success('Login Successfully');
             router.push('/')
         }
         else {

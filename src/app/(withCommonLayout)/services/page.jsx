@@ -1,11 +1,12 @@
+import Services from '@/Components/Shared/ServicesSections/Services';
 import React from 'react';
 
-const servicessPage = () => {
+const servicesPage = () => {
     return (
         <div>
-            <h1>This is servicess Page</h1>
+           <Services></Services>
         </div>
     );
 };
 
-export default servicessPage;
+export default servicesPage;
