@@ -26,14 +26,30 @@ const Booking = () => {
        return [...new Set(districts)]
     }
     // console.log(regions, 'all regions');
-    const handleFormData = (data) => {
-        reset();
-        document.getElementById('booking_modal')?.close();
-        toast.success('Booking Successfully');
-        console.log('Booking Data:', data);
-    };
+const handleFormData = async (data) => {
+  try {
+    const response = await fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-    return (
+    const result = await response.json();
+
+    if (response.ok) {
+      reset();
+      document.getElementById("booking_modal")?.close();
+      toast.success("Booking Successfully Done.Need to pay for the service.");
+      console.log("Booking Data:", result);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+return (
         <div>
             <button className="btn btn-primary" onClick={openModal}>
                 Book Now
