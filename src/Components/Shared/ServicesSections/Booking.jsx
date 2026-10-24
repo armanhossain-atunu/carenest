@@ -28,12 +28,17 @@ const Booking = () => {
     // console.log(regions, 'all regions');
 const handleFormData = async (data) => {
   try {
+    const bookingPayload = {
+      ...data,
+      createdAt: new Date().toISOString()
+    };
+
     const response = await fetch("http://localhost:5000/booking", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify(bookingPayload),
     });
 
     const result = await response.json();
@@ -41,11 +46,14 @@ const handleFormData = async (data) => {
     if (response.ok) {
       reset();
       document.getElementById("booking_modal")?.close();
-      toast.success("Booking Successfully Done.Need to pay for the service.");
+      toast.success("Booking Successfully Done. Need to pay for the service.");
       console.log("Booking Data:", result);
+    } else {
+      toast.error(result.message || "Failed to submit booking.");
     }
   } catch (error) {
-    console.error(error);
+    console.error("Booking API Error:", error);
+    toast.error("Network Error: Could not connect to the backend server (localhost:5000). Please make sure your server is running.");
   }
 };
 

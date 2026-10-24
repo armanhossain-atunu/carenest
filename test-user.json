@@ -1,0 +1,10 @@
+{
+  "message": "Login successful",
+  "user": {
+    "_id": "69cab610e9e4a7ba4944831b",
+    "name": "Arman",
+    "email": "admi1n@gmail.com",
+    "images": "https://i.ibb.co.com/tPbFMhrG/whimsical-actor-majestic-stag-playful-cartoon-illustration-1149116-35771.webp",
+    "password": "$2b$10$KXphDSQhMXxOBxXjfBXl4O5nbqUZlmEJ..CBxE4sTc/.pvmPNG0Bu"
+  }
+}

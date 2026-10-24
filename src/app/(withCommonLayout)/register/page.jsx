@@ -1,90 +1,130 @@
 'use client';
 import Link from 'next/link';
-import React from 'react';
+import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const Register = () => {
+    const router = useRouter();
+    const [loading, setLoading] = useState(false);
+
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm();
 
-    const onSubmit = (data) => {
-        console.log('User Created:', data);
-        // এখানে API / Firebase / Backend call করবে
+    const onSubmit = async (data) => {
+        setLoading(true);
+        try {
+            // Posting directly to the user's external Node/Express backend
+            const res = await fetch("http://localhost:5000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Even if response fails, checking if it gives json error response
+            let result;
+            try { result = await res.json(); } catch (e) { }
+
+            if (res.ok) {
+                toast.success('Account created successfully! Please login.');
+                router.push('/login');
+            } else {
+                toast.error(result?.message || 'Failed to create account. Email may already be registered.');
+            }
+        } catch (error) {
+            console.error("Registration failed: ", error);
+            toast.error('Network Error: Could not connect to the backend server (localhost:5000).');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className="flex justify-center my-10">
-            <div className='bg-base-200 border-base-300 rounded-box w-xs border p-4'>
+            <div className='bg-base-200 border-base-300 rounded-box w-xs md:w-96 shadow-xl p-8'>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="fieldset "
+                    className="fieldset"
                 >
-                    <legend className="text-2xl">Create Account</legend>
+                    <legend className="text-2xl font-bold text-center mb-6">Create Account</legend>
 
                     {/* Name */}
-                    <label className="label">Name</label>
-                    <input
-                        type="text"
-                        className="input"
-                        placeholder="Your name"
-                        {...register('name', { required: 'Name is required' })}
-                    />
-                    {errors.name && (
-                        <p className="text-red-500 text-sm">{errors.name.message}</p>
-                    )}
+                    <div className="form-control mb-3">
+                        <label className="label"><span className="label-text font-semibold">Name</span></label>
+                        <input
+                            type="text"
+                            className="input input-bordered w-full"
+                            placeholder="Your base name"
+                            {...register('name', { required: 'Name is required' })}
+                        />
+                        {errors.name && (
+                            <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                        )}
+                    </div>
 
                     {/* Email */}
-                    <label className="label mt-2">Email</label>
-                    <input
-                        type="email"
-                        className="input"
-                        placeholder="Email"
-                        {...register('email', { required: 'Email is required' })}
-                    />
-                    {errors.email && (
-                        <p className="text-red-500 text-sm">{errors.email.message}</p>
-                    )}
+                    <div className="form-control mb-3">
+                        <label className="label"><span className="label-text font-semibold">Email</span></label>
+                        <input
+                            type="email"
+                            className="input input-bordered w-full"
+                            placeholder="Email address"
+                            {...register('email', { required: 'Email is required' })}
+                        />
+                        {errors.email && (
+                            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                        )}
+                    </div>
 
                     {/* Image */}
-                    <label className="label mt-2">Image URL</label>
-                    <input
-                        type="text"
-                        className="input"
-                        placeholder="Profile image url"
-                        {...register('image', { required: 'Image URL is required' })}
-                    />
-                    {errors.image && (
-                        <p className="text-red-500 text-sm">{errors.image.message}</p>
-                    )}
+                    <div className="form-control mb-3">
+                        <label className="label"><span className="label-text font-semibold">Profile Image URL</span></label>
+                        <input
+                            type="url"
+                            className="input input-bordered w-full"
+                            placeholder="Profile image url"
+                            {...register('image', { required: 'Image URL is required' })}
+                        />
+                        {errors.image && (
+                            <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>
+                        )}
+                    </div>
 
                     {/* Password */}
-                    <label className="label mt-2">Password</label>
-                    <input
-                        type="password"
-                        className="input"
-                        placeholder="Password"
-                        {...register('password', {
-                            required: 'Password is required',
-                            minLength: {
-                                value: 6,
-                                message: 'Password must be at least 6 characters',
-                            },
-                        })}
-                    />
-                    {errors.password && (
-                        <p className="text-red-500 text-sm">
-                            {errors.password.message}
-                        </p>
-                    )}
+                    <div className="form-control mb-6">
+                        <label className="label"><span className="label-text font-semibold">Password</span></label>
+                        <input
+                            type="password"
+                            className="input input-bordered w-full"
+                            placeholder="Create a password"
+                            {...register('password', {
+                                required: 'Password is required',
+                                minLength: {
+                                    value: 6,
+                                    message: 'Password must be at least 6 characters',
+                                },
+                            })}
+                        />
+                        {errors.password && (
+                            <p className="text-red-500 text-sm mt-1">
+                                {errors.password.message}
+                            </p>
+                        )}
+                    </div>
 
-                    <button type="submit" className="btn btn-neutral mt-4 w-full">
-                        Create Account
+                    <button type="submit" disabled={loading} className="btn btn-primary w-full shadow-md">
+                        {loading ? <span className="loading loading-spinner"></span> : "Create Account"}
                     </button>
                 </form>
-                <Link href="/login" className='text-center'>Already have an account? <span className='text-primary'> Login</span> </Link>
+                <div className="mt-6 text-center">
+                    <Link href="/login" className="link link-hover">Already have an account? <span className='text-primary font-bold'> Login</span> </Link>
+                </div>
             </div>
         </div>
     );

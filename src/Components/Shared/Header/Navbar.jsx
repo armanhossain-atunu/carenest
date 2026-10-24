@@ -3,9 +3,12 @@ import React, { useEffect, useState } from 'react';
 import Logo from '../Logo';
 import Link from 'next/link';
 import NavLinks from './NavLink';
+import { useSession, signOut } from 'next-auth/react';
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light');
+    const { data: session, status } = useSession();
+    console.log(session, 'session');
 
     useEffect(() => {
         try {
@@ -67,7 +70,31 @@ const Navbar = () => {
                             </svg>
                         )}
                     </button>
-                    <Link href="/login" className="btn">Login</Link>
+                    {status === 'loading' ? (
+                        <span className="loading loading-spinner text-primary"></span>
+                    ) : session?.user ? (
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full border border-primary">
+                                    <img
+                                        alt="User Avatar"
+                                        src={session?.user?.images || "https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"}
+                                    />
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                                <li className="menu-title px-4 py-2 border-b border-base-200 mb-2">
+                                    <div className="flex flex-col gap-1">
+                                        <span className="font-bold text-base-content">{session?.user?.name || "User"}</span>
+                                        <span className="text-xs text-base-content/70 normal-case">{session?.user?.email}</span>
+                                    </div>
+                                </li>
+                                <li><button onClick={() => signOut()} className="text-error font-semibold">Logout</button></li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <Link href="/login" className="btn btn-primary">Login</Link>
+                    )}
                 </div>
             </div>
         </div>
